@@ -41,6 +41,16 @@ body {
     font-size: 32px;
     color: #e75480;
 }
+.lock-box h3 {
+    font-family: 'Parisienne';
+    font-size: 32px;
+    color: #e75480;
+}
+.lock-box h4 {
+    font-family: 'Parisienne';
+    font-size: 32px;
+    color: #e75480;
+}
 
 .lock-box input {
     padding: 10px;
@@ -162,3 +172,4 @@ body {
     margin-top: 10px;
     border-radius: 12px;
 }
+
