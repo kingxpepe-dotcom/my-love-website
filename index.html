@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Pour Toi, Mon Amour 🎄</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🔒 MÀN HÌNH PASSWORD -->
+<div id="lock-screen">
+    <div class="lock-box">
+        <h2>Un petit secret 💌</h2>
+        <input type="password" id="password" placeholder="Mot de passe...">
+        <button onclick="unlock()">Entrer</button>
+        <p id="error"></p>
+    </div>
+</div>
+
+<!-- 💖 NỘI DUNG CHÍNH -->
+<div id="content" class="hidden">
+
+    <audio id="music" loop>
+        <source src="snowman.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="card">
+    <h1>💗 To my favorite person</h1>
+
+    <p>
+        Hi love,<br>
+        In this quiet Christmas season,<br>
+        giữa những ngày se lạnh và ánh đèn dịu dàng,<br>
+        anh just want you to know one thing —
+        <br>you are always on my mind.
+    </p>
+
+    <p>
+        I may not say it out loud every day,<br>
+        but loving you is the calmest, warmest thing<br>
+        anh từng có trong cuộc đời này.
+    </p>
+
+    <p>
+        Thank you for choosing me,<br>
+        cảm ơn em vì đã ở lại,<br>
+        nhẹ nhàng như chính cách em bước vào tim anh.
+    </p>
+
+    <p class="merci">
+        With all my heart,<br>
+        yours — always.
+    </p>
+
+    <!-- ⏳ ĐẾM NGÀY YÊU -->
+    <div id="counter">
+        💞 We have been together for<br>
+        <span id="days">0</span> days
+    </div>
+
+    <!-- 💌 NÚT LÃNG MẠN -->
+    <button class="love-btn" onclick="showMessage()">
+        For you 💌
+    </button>
+
+    <p id="hiddenMessage" class="hidden-message">
+        No matter where life takes us,<br>
+        anh vẫn muốn nắm tay em,<br>
+        and walk slowly — together.
+    </p>
+   
+
+</div>
+
+
+<script>
+function unlock() {
+    const pass = document.getElementById("password").value;
+    if (pass === "anhyeuem") {
+        document.getElementById("lock-screen").style.display = "none";
+        document.getElementById("content").classList.remove("hidden");
+
+        const audio = document.getElementById("music");
+        audio.play().catch(() => {
+            document.addEventListener("click", () => {
+                audio.play();
+            }, { once: true });
+        });
+    } else {
+        document.getElementById("error").innerText = "Mot de passe incorrect 💔";
+    }
+}
+</script>
+<script>
+/* 📅 ĐỔI NGÀY BẮT ĐẦU YÊU Ở ĐÂY */
+const startDate = new Date("2024-01-21"); // YYYY-MM-DD
+
+const today = new Date();
+const diffTime = today - startDate;
+const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+document.getElementById("days").innerText = diffDays;
+
+/* 💌 NÚT HIỆN THÔNG ĐIỆP */
+function showMessage() {
+    document.getElementById("hiddenMessage").style.display = "block";
+}
+</script>
+
+</body>
+<div class="snow"></div>
+
+</html>
